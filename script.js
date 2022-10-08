@@ -50,5 +50,28 @@ async function getPhotos() {
   }
 }
 
+// Check to see if scrolling near bottom of page, Load More Photos
+window.addEventListener('scroll', () => {
+  // console.log(`window.innerHeight: ${window.innerHeight}`)
+  // console.log(`window.scrollY: ${window.scrollY}`)
+  // console.log(
+  //   'window.innerHeight + window.scrollY: ',
+  //   window.innerHeight + window.scrollY
+  // )
+  // console.log(`document.body.offsetHeight: ${document.body.offsetHeight}`)
+  // console.log(
+  //   'document.body.offsetHeight - 1000: ',
+  //   document.body.offsetHeight - 1000
+  // )
+  // console.log(' ')
+  if (
+    window.innerHeight + window.scrollY >=
+    document.body.offsetHeight - 1000
+  ) {
+    getPhotos()
+    console.log('load more')
+  }
+})
+
 // On Load
 getPhotos()
